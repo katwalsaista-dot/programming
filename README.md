@@ -112,4 +112,4 @@ def check_thread():
 The Advanced Password Analyzer represents a transition from basic scripting to professional-grade cybersecurity tool development. By integrating sophisticated data structures, multithreading, and cryptographic principles, the application provides a robust and secure environment for credential auditing.
 
 ---
-© 2026 | [Your Name] | Open Source Security Tools
+© 2026 | Saista Katwal | Open Source Security Tools
