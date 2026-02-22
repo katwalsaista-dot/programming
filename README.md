@@ -20,7 +20,7 @@ The **Advanced Password Analyzer** is a high-performance, privacy-centric cybers
 ---
 
 ## ⚙️ Core Architecture
-The application follows a **Layered Design Pattern**, strictly separating the graphical presentation from the core processing logic. This ensures high responsiveness even during intensive 133MB file scans.
+The application follow a **Layered Design Pattern**, strictly separating the graphical presentation from the core processing logic. This ensures high responsiveness even during intensive 133MB file scans.
 
 ### Execution Flow
 1. **Initialize**: Load the environment and GUI frame.
