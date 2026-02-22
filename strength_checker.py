@@ -226,7 +226,7 @@ def analyze_password():
     add_to_history(password, result['strength'])
 
 # Add password check to history
-#def add_to_history(password, strength):
+def add_to_history(password, strength):
     timestamp = datetime.now().strftime("%H:%M:%S")
     history_data.append({
         'time': timestamp,
