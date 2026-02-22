@@ -99,7 +99,7 @@ def check_password_strength(password):
     }
 
 # Generate strong password
-def generate_password():
+#def generate_password():
     length = 16
     characters = string.ascii_letters + string.digits + "!@#$%^&*"
     password = ''.join(random.choice(characters) for _ in range(length))
