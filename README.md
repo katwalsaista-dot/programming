@@ -1,76 +1,56 @@
 # 🔐 Advanced Password Analyzer with Breach Detection
-**ST4017CMD Introduction to Programming | Individual Coursework**
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
-[![Status](https://img.shields.io/badge/status-Final--Delivery-success.svg)]()
-[![Affiliation](https://img.shields.io/badge/University-Coventry%20/%20Softwarica-orange.svg)]()
+[![Status](https://img.shields.io/badge/status-Stable-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
 
 ---
 
 ## 📖 Overview
-The **Advanced Password Analyzer** is a high-performance, privacy-centric cybersecurity utility designed to audit credential strength. Developed as part of the ST4017CMD module, this tool moves beyond simple length checks to provide:
-- **Heuristic Scoring**: A multi-faceted judge of password complexity.
-- **Mathematical Entropy**: Shanon-based randomness estimation.
+The **Advanced Password Analyzer** is a high-performance, privacy-centric cybersecurity utility designed to audit credential strength. This tool provides a professional-grade evaluation of password security by integrating:
+- **Heuristic Scoring**: A multi-faceted evaluation of password complexity.
+- **Mathematical Entropy**: Shannon-based randomness estimation.
 - **Local Breach Detection**: Instant lookup against the 14-million-record `rockyou.txt` dataset.
 - **Secure Generation**: Cryptographically strong secret creation.
-- **Graphic Overviews**: Visual security pillars and architectural mapping.
-
-### 🛠️ Technologies Used
-- **Python 3.x**: Core logic and multithreading.
-- **Tkinter**: Graphical User Interface.
-- **RegEx**: High-speed string pattern matching.
-- **JSON**: Result serialization and reporting.
-- **Hashlib**: SHA-1 hashing for breach verification.
-
-![Project Security Pillars Overview](figures/figure0_intro_graphic.svg)
-*Figure 0: High-level conceptual overview of the system's security foundations.*
+- **Asynchronous Processing**: High responsiveness during intensive dataset scans.
 
 > [!IMPORTANT]
 > This application is entirely localized; no data ever leaves your machine. Your privacy is protected by "Security by Design".
 
 ---
 
-## 🖼️ System Architecture
-The application follows a **Layered Design Pattern**, strictly separating the Tkinter-based presentation from the core Python logic. This ensures high responsiveness even during intensive 133MB file scans.
+## ⚙️ Core Architecture
+The application follows a **Layered Design Pattern**, strictly separating the graphical presentation from the core processing logic. This ensures high responsiveness even during intensive 133MB file scans.
 
-### ⚙️ Core Algorithm
-The application follows a reactive, event-driven logical flow:
-1. **START**: Initialize Application and GUI Frame.
-2. **LISTEN**: Wait for user keystrokes in the entry field.
-3. **PROCESS (Real-time)**:
-   - READ current password string.
-   - EXECUTE heuristic scoring (RegEx validation).
-   - CALCULATE Shannon Entropy bits.
-4. **UPDATE**: Refresh the strength label and results dashboard dynamically.
-5. **SPAWN (Async)**: On "Check Breach", run background worker thread for `rockyou.txt` search.
-6. **EXPORT**: Serialize session history into JSON logs if requested.
-7. **STOP**: Terminate process on window closure.
-
-![Architecture Overview](figures/figure1_system_architecture.svg)
-*Figure 1: Architectural layering and data flow within the application.*
+### Execution Flow
+1. **Initialize**: Load the environment and GUI frame.
+2. **Listen**: Monitor real-time user input.
+3. **Analyze**: 
+   - Execute heuristic scoring (RegEx validation).
+   - Calculate Shannon Entropy bits.
+4. **Update**: Refresh the strength metrics and dashboard dynamically.
+5. **Breach Check**: Spawn an asynchronous background worker for `rockyou.txt` matching.
+6. **Persistence**: Optional JSON serialization for session history.
 
 ---
 
 ## 🚀 Key Features
 
 ### 1. Heuristic Strength Engine
-Uses a deterministic approach to score passwords from 0 to 6 based on length, character set diversity, and common pattern blacklisting.
-![Algorithm Flow](figures/figure4_strength_algorithm.svg)
+Uses a deterministic approach to score passwords based on length, character set diversity, and common pattern blacklisting.
 
 ### 2. Multi-threaded Breach Detection
-Scans the massive `rockyou.txt` wordlist in a background worker thread using O(N) linear search, keeping the GUI responsive.
-![Thread Model](figures/figure8_multithreading.svg)
+Scans massive wordlists in a background thread using memory-efficient streaming, keeping the GUI perfectly responsive.
 
 ### 3. Entropy Analysis
-Calculates the statistical randomness (bits of security) to provide a numeric benchmark for password quality.
-![Entropy Logic](figures/figure5_entropy_logic.svg)
+Calculates statistical randomness (bits of security) to provide a numeric benchmark for password quality.
 
 ---
 
 ## 🛠️ Technical Implementation
 
 ### Core Scoring Logic
-The analyzer evaluates character sets using the Python `re` module for high-performance pattern matching.
+The analyzer evaluates character sets using high-performance pattern matching.
 
 ```python
 # Regex Presence Checks
@@ -81,7 +61,7 @@ if re.search(r'[!@#$%^&*()_+\-=\[\]{};\':"\\|,.<>/?]', password):
 ```
 
 ### Memory-Efficient Search
-Using Python generators and context managers, we handle 14 million records with a near-zero memory footprint.
+Using Python generators and context managers, the tool handles 14 million records with a near-zero memory footprint.
 
 ```python
 # Thread-safe Breach Search
@@ -93,7 +73,7 @@ def check_thread():
     root.after(0, lambda: update_ui(is_breached))
 ```
 
-### 📑 Function Reference
+### 📑 API / Function Reference
 | Function | Description |
 | :--- | :--- |
 | `check_password_strength()` | Core scoring engine using RegEx and entropy math. |
@@ -101,19 +81,6 @@ def check_thread():
 | `check_breached()` | Manages threaded lookups in the breach list. |
 | `generate_password()` | Creates cryptographically strong secrets. |
 | `export_results()` | Serializes session data into a JSON report. |
-
----
-
-## 📊 Visual Documentation Gallery
-The project is supported by a comprehensive suite of 13 professional diagrams:
-
-| Concept | Visualization |
-| :--- | :--- |
-| **System Interaction** | ![User Flow](figures/figure13_user_flow.svg) |
-| **GUI Layout** | ![GUI Structure](figures/figure12_gui_layout.svg) |
-| **JSON Data Persistence** | ![JSON Export](figures/figure10_json_structure.svg) |
-| **File Handling** | ![File Workflow](figures/figure11_file_handling.svg) |
-| **Tech Stack** | ![Tech Stack](figures/figure15_tech_stack.svg) |
 
 ---
 
@@ -126,13 +93,13 @@ The project is supported by a comprehensive suite of 13 professional diagrams:
    ```
 
 2. **Setup Dependencies**:
-   This project uses standard Python libraries (Tkinter is usually pre-installed).
+   This project uses standard Python libraries. Tkinter is required for the GUI.
    ```bash
-   # No external pip installs required for core logic
+   # Standard library only - no external pip installs required
    ```
 
-3. **RockYou Database**:
-   Place `rockyou.txt` in the project root to enable full breach detection.
+3. **Breach Database**:
+   Place `rockyou.txt` in the project root to enable full breach detection capabilities.
 
 4. **Run the Application**:
    ```bash
@@ -142,7 +109,7 @@ The project is supported by a comprehensive suite of 13 professional diagrams:
 ---
 
 ## 📝 Conclusion
-This project demonstrates the transition from basic procedural programming to professional-grade cybersecurity tool development. By integrating sophisticated data structures, multithreading, and cryptographic principles, the application meets the highest standards for the ST4017CMD module at Softwarica College.
+The Advanced Password Analyzer represents a transition from basic scripting to professional-grade cybersecurity tool development. By integrating sophisticated data structures, multithreading, and cryptographic principles, the application provides a robust and secure environment for credential auditing.
 
 ---
-© 2026 | [Your Name] | **Softwarica College of IT & E-Commerce**
+© 2026 | [Your Name] | Open Source Security Tools
