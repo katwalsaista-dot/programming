@@ -19,7 +19,7 @@ history_listbox = None
 history_data = []
 
 # Password strength checker
-def check_password_strength(password):
+#def check_password_strength(password):
     score = 0
     feedback = []
     
