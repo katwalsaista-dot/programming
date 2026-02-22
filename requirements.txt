@@ -17,3 +17,4 @@
 
 # For creating standalone executable (optional):
 # pyinstaller>=6.0.0
+# Pasword Analyzer Tool
