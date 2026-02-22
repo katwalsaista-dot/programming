@@ -108,7 +108,7 @@ def generate_password():
     analyze_password()
 
 # Check for breached passwords using rockyou.txt
-#def check_breached():
+def check_breached():
     password = password_entry.get()
     if not password:
         messagebox.showwarning("Warning", "Please enter a password first")
