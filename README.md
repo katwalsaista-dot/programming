@@ -88,7 +88,7 @@ def check_thread():
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/[YourGitHub]/password-analyzer.git
+   git clone https://github.com/katwalsaista-dot/programming.git
    cd password-analyzer
    ```
 
