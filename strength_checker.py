@@ -177,7 +177,7 @@ def check_breached():
     # Run in separate thread
     threading.Thread(target=check_thread, daemon=True).start()
 
-#def update_breach_result(is_breached, sha1_hash, sample_created):
+def update_breach_result(is_breached, sha1_hash, sample_created):
     if is_breached:
         result_text.insert(tk.END, "⚠️ WARNING: This password has been breached!\n", 'warning')
         result_text.insert(tk.END, f"Hash (SHA-1): {sha1_hash}\n")
