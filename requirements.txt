@@ -1,0 +1,19 @@
+# Password Analyzer GUI Tool
+# Python 3.6 or higher required
+
+# All modules used are part of Python's standard library:
+# tkinter - GUI framework
+# re - regular expressions for pattern matching
+# random - password generation
+# string - character sets
+# hashlib - SHA-1 hash calculation
+# threading - background processing
+# json - export functionality
+# os - file system operations
+# datetime - timestamp generation
+
+# No external packages required!
+# Simply run: python strength_checker.py
+
+# For creating standalone executable (optional):
+# pyinstaller>=6.0.0
