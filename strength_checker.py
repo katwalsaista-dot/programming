@@ -194,7 +194,7 @@ def update_breach_result(is_breached, sha1_hash, sample_created):
             result_text.insert(tk.END, "Note: This checks against the actual rockyou.txt file.\n")
 
 # Analyze password
-def analyze_password():
+#def analyze_password():
     password = password_entry.get()
     if not password:
         messagebox.showwarning("Warning", "Please enter a password first")
